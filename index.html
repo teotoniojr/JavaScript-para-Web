@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Professor Teo - Tabela de notas</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	</head>
+	<body>
+
+		<header>
+			<div class="container">
+				<h1 class="titulo">Aparecida Nutrição</h1>
+			</div>
+		</header>
+		<main>
+			<section class="container">
+				<h2>Meus estudantes</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Nota 1º Trimestre</th>
+							<th>Nota 2º Trimestre</th>
+							<th>Nota 3º Trimestre</th>
+							<th>Média</th>
+							<th>Faltam</th>
+						</tr>
+					</thead>
+					<tbody id="tabela-estudantes">
+						<tr class="estudantes" >
+							<td class="info-nome">Paulo</td>
+							<td class="primeira-nota">50</td>
+							<td class="segunda-nota">0</td>
+							<td class="terceira-nota">100</td>
+							<td class="media">0</td>
+							<td class="faltam">0</td>
+							
+						</tr>
+
+						<tr class="estudantes" >
+							<td class="info-nome">João</td>
+							<td class="primeira-nota">80</td>
+							<td class="segunda-nota">100</td>
+							<td class="terceira-nota">50</td>
+							<td class="media">0</td>
+							<td class="faltam">0</td>
+						</tr>
+
+						<tr class="estudantes" >
+							<td class="info-nome">Erica</td>
+							<td class="primeira-nota">54</td>
+							<td class="segunda-nota">56</td>
+							<td class="terceira-nota">58</td>
+							<td class="media">0</td>
+							<td class="faltam">0</td>
+						</tr>
+
+						<tr class="estudantes">
+							<td class="info-nome">Douglas</td>
+							<td class="primeira-nota">85</td>
+							<td class="segunda-nota">80</td>
+							<td class="terceira-nota">0</td>
+							<td class="media">0</td>
+							<td class="faltam">0</td>
+						</tr>
+						<tr class="estudantes" >
+							<td class="info-nome">Tatiana</td>
+							<td class="primeira-nota">46</td>
+							<td class="segunda-nota">44</td>
+							<td class="terceira-nota">90</td>
+							<td class="media">0</td>
+							<td class="faltam">0</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</section>
+
+			<section class="container">
+			<h2 id="titulo-form">Adicionar novo estudantes</h2>
+			<form id="form-adiciona">
+				<div class="grupo">
+					<label for="nome">Nome:</label>
+					<input id="nome" name="nome" type="text" placeholder="digite o nome do seu estudante" class="campo">
+				</div>
+				<div class="grupo">
+					<label for="notaUm">Primeira nota:</label>
+					<input id="notaUm" name="notaUm" type="number" placeholder="digite a nota do primeiro trimestre" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="notaDois">Segunda Nota:</label>
+					<input id="notaDois" name="notaDois" type="number" placeholder="digite a nota do segundo trimestre" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="notaTres">Terceira Nota:</label>
+					<input id="notaTres" name="notaTres" type="number" placeholder="digite a nota do terceiro trimestre" class="campo campo-medio">
+				</div>
+
+				<button id="adicionar-estudante" class="botao bto-principal">Adicionar</button>
+			</form>
+		</section>
+		</main>
+		<script src="js/principal.js"></script>
+		<script src="js/form.js"></script>
+	</body>
+</html>
