@@ -3,20 +3,15 @@
     event.preventDefault();
     
     var form = document.querySelector("#form-adiciona");
-    //extraindo informações do estudante do form
-    
+      
     var estudante = obtemInfoForm(form);
 
     var estudanteTr = montaTr(estudante);
 
-    if (!validadeNotaUm(estudante)){
-        console.log("não é válido")
-        return;
-    } else if (!validadeNotaDois(estudante)){
-        console.log("não é válido")
-        return;
-    } else if (!validadeNotaTres(estudante)){
-        console.log("não é válido")
+    var erros = validadeNotas(estudante);
+       
+    if (erros.length > 0){
+        exibeMensagensDeErro(erros);
         return;
     }
 
@@ -25,6 +20,8 @@
     tabela.appendChild(estudanteTr);
 
     form.reset();
+    var mensagensErro = document.querySelector("#mensagens-erro");
+    mensagensErro.innerHTML = "";
 
 });
 
@@ -65,26 +62,42 @@ function montaTd (dado,classe){
 }
 
 
-function validadeNotaUm(estudante){
-    if(validaNotas(estudante.notaUm)){
-        return true;
-    } else {
-        return false;
-    }
-    
-}
-function validadeNotaDois(estudante){
-    if(validaNotas(estudante.notaDois)){
-        return true;
-    } else {
-        return false;
-    }
-}
-function validadeNotaTres(estudante){
-    if(validaNotas(estudante.notaTres)){
-        return true;
-    } else {
-        return false;
-    }
-}
+function validadeNotas(estudante){
 
+    var erros = [];
+
+    if(estudante.nome.length == 00){
+        erros.push("Nome inválido")
+    }
+    if(estudante.notaUm.length == 0){
+        erros.push("A Primeira nota deve ser preenchida")
+    }
+    if(estudante.notaDois.length == 0){
+        erros.push("A Segunda nota deve ser preenchida")
+    }
+    if(estudante.notaTres.length == 0){
+        erros.push("A Terceira nota deve ser preenchida")
+    }
+    if(!validaNotas(estudante.notaUm)){
+        erros.push("Primeira nota inválida");
+    }
+    if(!validaNotas(estudante.notaDois)){
+        erros.push("Segunda nota inválida");
+    }
+    if(!validaNotas(estudante.notaTres)){
+        erros.push("Terceira nota inválida");
+    }
+
+    return erros
+
+}
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+    ul.innerHTML = "";
+
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
